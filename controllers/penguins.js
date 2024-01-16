@@ -12,7 +12,7 @@ try {
 
 async function index(req,res){
   try {
-    const penguins=await Penguin.find({})
+    const penguins=await Penguin.find({}).sort({_id:-1})
     console.log(penguins)
     res.json(penguins)
   } catch (error) {
