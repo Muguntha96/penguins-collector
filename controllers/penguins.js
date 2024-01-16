@@ -13,6 +13,7 @@ try {
 async function index(req,res){
   try {
     const penguins=await Penguin.find({})
+    console.log(penguins)
     res.json(penguins)
   } catch (error) {
     console.log(error)
