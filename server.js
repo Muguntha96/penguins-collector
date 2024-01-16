@@ -1,10 +1,13 @@
 // import npm packages
+import 'dotenv/config.js'
 import express from 'express'
 import logger from 'morgan'
 import cors from 'cors'
+import './config/database.js'
 
 // import routers
 import { router as indexRouter } from './routes/index.js'
+import {router as penguinsRouter} from './routes/penguins.js'
 
 // create the express app
 const app = express()
@@ -16,6 +19,7 @@ app.use(express.json())
 
 // mount imported routes
 app.use('/', indexRouter)
+app.use('/api/penguins',penguinsRouter)
 
 // handle 404 errors
 app.use(function (req, res, next) {
